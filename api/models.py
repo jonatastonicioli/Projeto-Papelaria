@@ -8,3 +8,15 @@ class Categoria(models.Model):
 
     def __str__(self):
         return self.nome
+
+class Produto(models.Model):
+    codigo = models.CharField(max_length=10, unique =True)
+    nome = models.CharField(max_length=200)
+    descricao = models.TextField(blank=True, null = True)
+    preco = models.DecimalField(max_digits=10, decimal_places=2)
+    quantidade = models.PositiveIntegerField(default=0)
+    ativo = models.BooleanField(default=True)
+    categoria = models.ForeignKey(Categoria, on_delete=models.CASCADE, related_name="produtos")
+
+    def __str__(self):
+        return self.nome
