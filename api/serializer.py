@@ -5,6 +5,6 @@ class CategoriaSerializer (ModelSerializer):
     class Meta:
         model = Categoria
         fields = '__all__'
-        fildes = ['nome', 'descricao', ]
+
 
     
